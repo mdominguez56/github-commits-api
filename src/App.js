@@ -1,13 +1,20 @@
 import UseProfileCard from "./Components/Card/UseProfileCard";
 import CommitsTable from "./Components/CommitsTable/CommitsTable";
+import styled from "styled-components";
 
 function App() {
   return (
-    <div>
+    <AppContainer>
       <UseProfileCard />
       <CommitsTable />
-    </div>
+    </AppContainer>
   );
 }
+
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export default App;
