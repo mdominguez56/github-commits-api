@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import CardActions from "@material-ui/core/CardActions";
 import CardMedia from "@material-ui/core/CardMedia";
 import Link from "@material-ui/core/Link";
 
@@ -25,26 +24,26 @@ export default function UserProfileCard() {
     setRepoHtml(html_url);
   };
 
+  function handleClick() {}
+
   return (
     <div>
       <CardContainer>
         <CardImg image={avatar} title="github-user-avatar" />
         <CardTextContainer>
           <SubTitleContainer>
-            <SubTitle>GitHub user: </SubTitle> {login}
+            <SubTitle>My Github user</SubTitle>
+            <Link href={userHtml} target="_blank" rel="noopener">
+              {login}
+            </Link>
           </SubTitleContainer>
           <SubTitleContainer>
-            <SubTitle>Repository: </SubTitle> {name}
+            <SubTitle>This repository</SubTitle>
+            <Link href={repoHtml} target="_blank" rel="noopener">
+              {name}
+            </Link>
           </SubTitleContainer>
         </CardTextContainer>
-        <CardActions>
-          <Link href={userHtml} target="_blank" rel="noopener">
-            Github user
-          </Link>
-          <Link href={repoHtml} target="_blank" rel="noopener">
-            Repository link
-          </Link>
-        </CardActions>
       </CardContainer>
     </div>
   );
@@ -58,11 +57,15 @@ const CardContainer = styled.div`
   align-items: center;
   border-radius: 20px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.07);
+  background-color: #efeceb;
+  @media (max-width: 769px) {
+    margin-top: 30px;
+  }
 `;
 
 const CardImg = styled(CardMedia)`
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
 `;
 
 const CardTextContainer = styled.div`
@@ -74,11 +77,12 @@ const CardTextContainer = styled.div`
 
 const SubTitleContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
 `;
 
-const SubTitle = styled.h2`
+const SubTitle = styled.p`
+  font-size: 20px;
   font-weight: 600;
   margin: 0;
 `;
