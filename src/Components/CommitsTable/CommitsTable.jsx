@@ -14,11 +14,11 @@ import Link from "@material-ui/core/Link";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: theme.palette.secondary.dark,
     color: theme.palette.common.white,
   },
   body: {
-    fontSize: 14,
+    fontSize: 15,
   },
 }))(TableCell);
 
@@ -32,7 +32,7 @@ const StyledTableRow = withStyles((theme) => ({
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 700,
+    minWidth: 500,
   },
 });
 
@@ -51,7 +51,7 @@ export default function CommitsTable() {
   const classes = useStyles();
 
   return (
-    <div>
+    <CommitsTableContainer>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
@@ -59,9 +59,7 @@ export default function CommitsTable() {
               <StyledTableCell align="center">Day</StyledTableCell>
               <StyledTableCell align="center">Hour</StyledTableCell>
               <StyledTableCell align="center">Commit name</StyledTableCell>
-              <StyledTableCell align="center">
-                HTML Url of Commit
-              </StyledTableCell>
+              <StyledTableCell align="center">Commit URL</StyledTableCell>
               <StyledTableCell align="center">Author</StyledTableCell>
             </TableRow>
           </TableHead>
@@ -90,6 +88,12 @@ export default function CommitsTable() {
           </TableBody>
         </Table>
       </TableContainer>
-    </div>
+    </CommitsTableContainer>
   );
 }
+
+const CommitsTableContainer = styled.div`
+  @media (max-width: 769px) {
+    width: 100%;
+  }
+`;
