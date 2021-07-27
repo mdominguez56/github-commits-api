@@ -1,21 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
+import styled from "styled-components";
 import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Link from "@material-ui/core/Link";
-import Typography from "@material-ui/core/Typography";
-
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 400,
-  },
-});
 
 export default function UseProfileCard() {
   const [name, setName] = useState("");
@@ -38,26 +25,18 @@ export default function UseProfileCard() {
     setRepoHtml(html_url);
   };
 
-  const classes = useStyles();
-
   return (
     <div>
-      <Card className={classes.root}>
-        <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image={avatar}
-            title="Github user Avatar"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              GitHub user: {login}
-            </Typography>
-            <Typography gutterBottom variant="h5" component="h3">
-              Repository: {name}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
+      <CardContainer>
+        <CardImg image={avatar} title="github-user-avatar" />
+        <CardTextContainer>
+          <SubTitleContainer>
+            <SubTitle>GitHub user: </SubTitle> {login}
+          </SubTitleContainer>
+          <SubTitleContainer>
+            <SubTitle>Repository: </SubTitle> {name}
+          </SubTitleContainer>
+        </CardTextContainer>
         <CardActions>
           <Link href={userHtml} target="_blank" rel="noopener">
             Github user
@@ -66,7 +45,40 @@ export default function UseProfileCard() {
             Repository link
           </Link>
         </CardActions>
-      </Card>
+      </CardContainer>
     </div>
   );
 }
+
+const CardContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.07);
+`;
+
+const CardImg = styled(CardMedia)`
+  width: 400px;
+  height: 400px;
+`;
+
+const CardTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 125px;
+`;
+
+const SubTitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+`;
+
+const SubTitle = styled.h2`
+  font-weight: 600;
+  margin: 0;
+`;
