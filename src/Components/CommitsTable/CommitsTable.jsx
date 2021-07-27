@@ -10,6 +10,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import Link from "@material-ui/core/Link";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -55,13 +56,13 @@ export default function CommitsTable() {
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>Day</StyledTableCell>
-              <StyledTableCell>Hour</StyledTableCell>
-              <StyledTableCell align="right">Commit name</StyledTableCell>
-              <StyledTableCell align="right">
+              <StyledTableCell align="center">Day</StyledTableCell>
+              <StyledTableCell align="center">Hour</StyledTableCell>
+              <StyledTableCell align="center">Commit name</StyledTableCell>
+              <StyledTableCell align="center">
                 HTML Url of Commit
               </StyledTableCell>
-              <StyledTableCell align="right">Author</StyledTableCell>
+              <StyledTableCell align="center">Author</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -73,11 +74,15 @@ export default function CommitsTable() {
                 <StyledTableCell component="th" scope="row">
                   {moment(data.commit.author.date).format("h:mm:ss a")}
                 </StyledTableCell>
-                <StyledTableCell align="right">
+                <StyledTableCell align="center">
                   {data.commit.message}
                 </StyledTableCell>
-                <StyledTableCell align="right">{data.html_url}</StyledTableCell>
-                <StyledTableCell align="right">
+                <StyledTableCell align="center">
+                  <Link href={data.html_url} target="_blank" rel="noopener">
+                    Link to Commit
+                  </Link>
+                </StyledTableCell>
+                <StyledTableCell align="center">
                   {data.commit.author.name}
                 </StyledTableCell>
               </StyledTableRow>

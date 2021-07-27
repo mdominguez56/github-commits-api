@@ -4,7 +4,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardMedia from "@material-ui/core/CardMedia";
 import Link from "@material-ui/core/Link";
 
-export default function UseProfileCard() {
+export default function UserProfileCard() {
   const [name, setName] = useState("");
   const [login, setLogin] = useState("");
   const [avatar, setAvatar] = useState("");

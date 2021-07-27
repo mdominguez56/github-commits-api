@@ -1,11 +1,11 @@
-import UseProfileCard from "./Components/Card/UseProfileCard";
+import UserProfileCard from "./Components/Card/UserProfileCard";
 import CommitsTable from "./Components/CommitsTable/CommitsTable";
 import styled from "styled-components";
 
 function App() {
   return (
     <AppContainer>
-      <UseProfileCard />
+      <UserProfileCard />
       <CommitsTable />
     </AppContainer>
   );
