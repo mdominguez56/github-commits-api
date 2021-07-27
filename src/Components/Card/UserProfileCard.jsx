@@ -24,8 +24,6 @@ export default function UserProfileCard() {
     setRepoHtml(html_url);
   };
 
-  function handleClick() {}
-
   return (
     <div>
       <CardContainer>
