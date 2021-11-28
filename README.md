@@ -22,6 +22,4 @@ yarn install
 yarn start
 ```
 
-Thank you for letting me participate in this recruitment process! 🎁
-
 - Matias Dominguez Alonso - 2021 🤓.
